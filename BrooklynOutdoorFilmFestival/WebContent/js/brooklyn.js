@@ -1,16 +1,34 @@
 $(function() {
-	  $(document).click(function (event) {
+	$(document).on('click',function (event) {
 	    $('.navbar-collapse').collapse('hide');
 	  });
 	});
 	$(document).on('click', '.close', function () {
      $(this).parent('div').fadeOut();
  	});
+	
 	$(".dropdown-menu li a").click(function(){
 	  
 	  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
 	  $(this).parents(".dropdown").find('.btn').addClass('chngOverflow');
-	}); 
+	});
+	
+	var movie = '', seats = '', movieArr = [];
+	$(".dropdown-menu li").on('click',function (){
+		movie = $(this).text();
+		$('#seatSelector').modal('show');
+	});
+	$('.seatSelectorButtons').on('click',function (){
+		seats = $(this).text();
+		$('#seatSelector').modal('show');
+	});
+	$('#seatsConfirm').on('click', function(e){
+		movieArr.push(movie,seats);
+		
+		$("#selectionTable").append("<tr><td>" + movie + "</td><td>" + seats + "</td></tr>");
+		$('#seatSelector').modal('hide');
+		  e.preventDefault();
+		});
 	
 	$('#regForm').on('submit', function(e){
 	  var month = 'August';
@@ -25,7 +43,9 @@ $(function() {
 	  {
 		  var inputval = dropdownMenuUpd[j].text();
 		  if(inputval.indexOf(month) >= 0)
-		  		count++;
+		  	{		
+			  count++; 
+			}
 	  }	  
 	  if(count > 3) {
 		  alert("You haven't selected any movie shows yet!!");
@@ -36,12 +56,14 @@ $(function() {
 	  }		  
 	  e.preventDefault();
 	});
-$('#btnYes').on('click', function(e){
-	  $('#regModal').modal('hide');
-	  $('#regSuccess').modal('show');
-	  e.preventDefault();
+
+	$('#btnYes').on('click', function(e){
+	  	$('#regModal').modal('hide');
+	  	$('#regSuccess').modal('show');
+	  	e.preventDefault();
 	});
-$('#btnNo').on('click', function(e){
+	
+	$('#btnNo').on('click', function(e){
 	$('#regModal').modal('hide');
 	$('#regCancel').modal('show');
 	e.preventDefault();

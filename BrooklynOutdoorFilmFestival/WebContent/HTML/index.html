@@ -11,7 +11,7 @@
   <link href="../css/brooklyn.css" rel="stylesheet">	
 </head>
 <body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
- <div id="headerDetails" class="container-fluid banner text-center">
+<div id="headerDetails" class="container-fluid banner text-center">
 	<h1><p>Free film festival @ Brooklyn Bridge Park !!</p><p> Aug 5 to Aug 8</p></h1>
  </div>
  <nav class="navbar navbar-default navbar-fixed-top">
@@ -354,8 +354,7 @@
 							</div>
 						</div>
 						<input type="submit" value="Register" class="btn btn-block register">
-						<!-- <input type="submit" value="Register" class="btn btn-block register" onsubmit="openModal()"> -->
-		    		</form>
+					</form>
 		    	</div>
 	    	</div>
     	</div>
@@ -387,7 +386,7 @@
  <div id="footer" class="container text-center">
  	<div class="row">
  		<div class="col-sm-12 col-md-12 col-xs-12">
- 			<a class="social" href="#home" title="Go to home page" ><span>Go to home page</span></a>
+ 			<a class="social" href="#home" title="Go to home page" ><span>Quick Links</span></a>
       	</div>	
    	</div>
    	<div class="row">
@@ -401,14 +400,50 @@
       	</div>	
    	</div>
  </div>
- <div id="regModal" class="modal">
+ 
+ <div id="seatSelector" class="modal  text-center">
 	<div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
             <a href="#" data-dismiss="modal" class="close"><span>x</span></a>
-             <h4>Are you sure</h4>
+             <h4>How many seats?</h4>
         </div>
         <div class="modal-body">
+             <ul class="list-inline">
+             	<li><button class="btn seatSelectorButtons">1</button></li>
+             	<li><button class="btn seatSelectorButtons">2</button></li>
+             	<li><button class="btn seatSelectorButtons">3</button></li>
+             	<li><button class="btn seatSelectorButtons">4</button></li>
+             	<li><button class="btn seatSelectorButtons">5</button></li>
+              	<li><button class="btn seatSelectorButtons">6</button></li>
+             	<li><button class="btn seatSelectorButtons">7</button></li>
+             	<li><button class="btn seatSelectorButtons">8</button></li>
+             	<li><button class="btn seatSelectorButtons">9</button></li>
+             	<li><button class="btn seatSelectorButtons">10</button></li>
+             </ul>
+        </div>
+        <div class="modal-footer">
+          <a href="#" id="seatsConfirm" class="btn col-md-12 col-xs-12 col-sm-12">Select Seats</a>
+        </div>
+      </div>
+    </div>
+</div>
+ <div id="regModal" class="modal text-center">
+	<div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <a href="#" data-dismiss="modal" class="close"><span>x</span></a>
+             <h4>Are you sure to submit??</h4>
+        </div>
+        <div class="modal-body">
+             <p>List of selected movies</p>
+             <table class="table" id="selectionTable">
+             	<tr>
+        			<th>Movie(Name and Show Time)</th>
+        			<th>Total Seats Selected</th>
+      			</tr>
+    		 </table>
+             <hr class="horzRegModal">
              <p>Do you want to submit the form?</p>
         </div>
         <div class="modal-footer row">
@@ -445,9 +480,8 @@
   </div>		
 </div>
  
-<script src="../js/brooklyn.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
+<script src="../js/brooklyn.js"></script>  
 </body>
 </html>
